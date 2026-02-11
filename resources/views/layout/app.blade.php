@@ -109,12 +109,27 @@
 
         .post-meta-detail {
             font-size: 17px;
-            color: green;
+            color: rgb(141, 207, 131)
         }
 
         .description-show {
             color: #555;
             line-height: 1.5;
+        }
+        .form-container { 
+            padding: 7px;
+            border-radius: 20px;
+            width: 80%;
+            border: 1px solid black;
+            box-shadow: 1px 10px 20px rgba(75, 75, 75, 0.731);
+            margin:70px auto;
+        }
+        .form { 
+            padding: 20px; 
+            margin: auto;
+        }
+        .form-label{
+            width: 50%;
         }
     </style>
 </head>

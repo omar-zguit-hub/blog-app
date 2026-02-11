@@ -2,7 +2,10 @@
 @section('content')
     <div class="d-flex justify-content-between m-5 p-2">
         <h2>Posts</h2>
-        <button class="btn btn-success">Create Post</button>
+        <a href="{{route('posts.create')}}">
+            <button class="btn btn-success">Create Post</button>
+        </a>
+        
     </div>
     <div class="posts-container">
         @foreach ($AllPosts as $post)
