@@ -12,10 +12,10 @@
             <div class="post-card">
                 <div class="post-content">
                     <div class="d-flex justify-content-between">
-                        {{-- Do not use the syntax {{$post->title}} because we only have static data in the controller as an array; use $post['title'] instead.  --}}
-                        <h2 class="post-title pe-3">{{ $post['title'] }}</h2>
+                        {{-- use this syntax {{$post->title}} because we have now object data from DB  --}}
+                        <h2 class="post-title pe-3">{{ $post->title }}</h2>
                         <div class="d-flex gap-3">
-                            <a href="{{ route('posts.edit', $post['id']) }}">
+                            <a href="{{ route('posts.edit', $post->id) }}">
                                 <i class="bi bi-pencil icon"></i>
                             </a>
                             <form action="">
@@ -25,9 +25,9 @@
                         </div>
 
                     </div>
-                    <div class="post-meta">By <u>{{ $post['posted_by'] }} </u>• {{ $post['created_at'] }}</div>
-                    <p class="post-text">{{ $post['description'] }}</p>
-                    <a href="{{ route('posts.show', $post['id']) }}" class="read-more">Read More</a>
+                    <div class="post-meta">By <u>{{ $post->user->name }} </u>• {{ $post->created_at->format('Y/m/d') }}</div>
+                    <p class="post-text">{{ $post->description }}</p>
+                    <a href="{{ route('posts.show', $post->id) }}" class="read-more">Read More</a>
                 </div>
             </div>
         @endforeach
