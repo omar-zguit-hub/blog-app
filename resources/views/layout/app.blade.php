@@ -131,6 +131,12 @@
         .form-label{
             width: 50%;
         }
+        .delete{ 
+            background: none;
+            border: none;
+            padding: 0;
+            margin: 0;
+        }
     </style>
 </head>
 

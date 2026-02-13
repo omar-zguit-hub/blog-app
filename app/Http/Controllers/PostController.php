@@ -43,10 +43,17 @@ class PostController extends Controller
             'user_id' => $postedBy
         ]);
         // dd();
-        return to_route('posts.index');
+        return redirect('posts');
     }
     public function edit()
     {
         return view('posts.edit');
+    }
+    public function destroy($id)
+    {
+        $selectedId = Post::find($id);
+        $selectedId->delete();
+
+        return redirect('posts');
     }
 }

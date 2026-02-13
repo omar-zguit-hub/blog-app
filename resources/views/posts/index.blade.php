@@ -18,14 +18,20 @@
                             <a href="{{ route('posts.edit', $post->id) }}">
                                 <i class="bi bi-pencil icon"></i>
                             </a>
-                            <form action="">
-                                <i class="bi bi-trash icon"></i>
+                            <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
+                                @method('DELETE')
+                                @csrf
+                                <button class="delete">
+                                    <i class="bi bi-trash icon"></i>
+                                </button>
+
                             </form>
 
                         </div>
 
                     </div>
-                    <div class="post-meta">By <u>{{ $post->user->name }} </u>• {{ $post->created_at->format('Y/m/d') }}</div>
+                    <div class="post-meta">By <u>{{ $post->user->name }} </u>• {{ $post->created_at->format('Y/m/d') }}
+                    </div>
                     <p class="post-text">{{ $post->description }}</p>
                     <a href="{{ route('posts.show', $post->id) }}" class="read-more">Read More</a>
                 </div>

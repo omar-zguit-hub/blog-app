@@ -8,8 +8,8 @@ use App\Http\Controllers\PostController;
 // });
 
 // for displaying the posts
-Route::get('/', [PostController::class, 'index']); 
-Route::get('/posts', [PostController::class, 'index'])->name('posts.index'); 
+Route::get('/', [PostController::class, 'index']);
+Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 
 // for create a new posts
 Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
@@ -20,5 +20,9 @@ Route::get('/posts/create', [PostController::class, 'create'])->name('posts.crea
 // for displaying an edit form
 Route::get('/posts/edit/{post}', [PostController::class, 'edit'])->name('posts.edit');
 
+// for deleting post
+Route::delete('/posts/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
+
 // for displaying single post
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
+
