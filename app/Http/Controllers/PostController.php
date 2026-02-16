@@ -45,10 +45,31 @@ class PostController extends Controller
         // dd();
         return redirect('posts');
     }
-    public function edit()
+
+
+    public function edit($id)
     {
-        return view('posts.edit');
+        $oldPost = Post::find($id);
+        $users = User::all();
+        return view('posts.edit', compact('oldPost', 'users'));
     }
+
+    public function update($id)
+    {
+        $title = request()->title;
+        $description = request()->description;
+        $postedBy = request()->postedBy;
+
+        $post = Post::find($id);
+ 
+        $post->update([
+            'title' => $title,
+            'description' => $description,
+            'user_id' => $postedBy
+        ]);
+        return redirect('posts');
+    }
+
     public function destroy($id)
     {
         $selectedId = Post::find($id);

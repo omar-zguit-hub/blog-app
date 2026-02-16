@@ -20,6 +20,9 @@ Route::get('/posts/create', [PostController::class, 'create'])->name('posts.crea
 // for displaying an edit form
 Route::get('/posts/edit/{post}', [PostController::class, 'edit'])->name('posts.edit');
 
+// for displaying an edit form
+Route::put('/posts/edit/{post}', [PostController::class, 'update'])->name('posts.update');
+
 // for deleting post
 Route::delete('/posts/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
 
